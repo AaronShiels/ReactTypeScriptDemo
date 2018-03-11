@@ -11,17 +11,16 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Hello = /** @class */ (function (_super) {
-    __extends(Hello, _super);
-    function Hello() {
+var Nav = /** @class */ (function (_super) {
+    __extends(Nav, _super);
+    function Nav() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Hello.prototype.render = function () {
-        return React.createElement("div", null,
-            "Hello, ",
-            this.props.name);
+    Nav.prototype.render = function () {
+        return (React.createElement("nav", { className: "navbar navbar-expand-md navbar-light fixed-top bg-light" },
+            React.createElement("a", { className: "navbar-brand" }, this.props.name)));
     };
-    return Hello;
+    return Nav;
 }(React.Component));
-exports.default = Hello;
-//# sourceMappingURL=hello.js.map
+exports.default = Nav;
+//# sourceMappingURL=Nav.js.map

@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = require("react");
+var ReactDOM = require("react-dom");
+require("bootstrap/dist/css/bootstrap.min.css");
+var app_1 = require("./app");
+ReactDOM.render(React.createElement(app_1.default, null), document.getElementById("root"));
+//# sourceMappingURL=index.js.map
