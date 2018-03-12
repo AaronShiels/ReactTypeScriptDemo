@@ -1,11 +1,26 @@
 ﻿import * as React from "react";
-import IItem from "./IItem";
+import Item from "../Models/Item";
 
-interface IItemListProps {
-    items: IItem[]
+interface ItemRowProps extends Item {
 }
 
-class ItemList extends React.Component<IItemListProps> {
+class ItemRow extends React.Component<ItemRowProps>{
+    public render() {
+        return (
+            <tr>
+                <td>{this.props.name}</td>
+                <td>{this.props.quantity}</td>
+                <td>{this.props.cost}</td>
+            </tr>
+        );
+    }
+}
+
+interface ItemListProps {
+    items: Item[]
+}
+
+class ItemList extends React.Component<ItemListProps> {
     public render() {
         return (
             <table className="table">
@@ -19,26 +34,11 @@ class ItemList extends React.Component<IItemListProps> {
                 <tbody>
                     {
                         this.props.items.map(item =>
-                            <Item name={item.name} cost={item.cost} quantity={item.quantity} />
+                            <ItemRow name={item.name} cost={item.cost} quantity={item.quantity} />
                         )
                     }
                 </tbody>
             </table>
-        );
-    }
-}
-
-interface IItemProps extends IItem {
-}
-
-class Item extends React.Component<IItemProps>{
-    public render() {
-        return (
-            <tr>
-                <td>{this.props.name}</td>
-                <td>{this.props.quantity}</td>
-                <td>{this.props.cost}</td>
-            </tr>
         );
     }
 }

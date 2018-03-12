@@ -1,17 +1,17 @@
 ﻿import * as React from "react";
+import { connect } from "react-redux";
 import Nav from "./Nav";
 import Inventory from "./Inventory";
+import Item from "../Models/Item";
+import State from "../Redux/State";
 
-interface HelloProps {
-}
-
-class App extends React.Component<HelloProps, {}> {
+class App extends React.Component {
     render() {
         return (
             <div>
                 <Nav name="Demo" />
                 <main className="container">
-                    <Inventory name="Personal Inventory"/>
+                    <Inventory />
                 </main>
             </div>
         );

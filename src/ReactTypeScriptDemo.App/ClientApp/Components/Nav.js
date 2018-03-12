@@ -11,16 +11,16 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Nav_1 = require("./Nav");
-var App = /** @class */ (function (_super) {
-    __extends(App, _super);
-    function App() {
+var Nav = /** @class */ (function (_super) {
+    __extends(Nav, _super);
+    function Nav() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    App.prototype.render = function () {
-        return (React.createElement(Nav_1.default, { name: "Demo" }));
+    Nav.prototype.render = function () {
+        return (React.createElement("nav", { className: "navbar navbar-expand-md navbar-dark fixed-top bg-dark" },
+            React.createElement("a", { className: "navbar-brand", href: "#" }, this.props.name)));
     };
-    return App;
+    return Nav;
 }(React.Component));
-exports.default = App;
-//# sourceMappingURL=App.js.map
+exports.default = Nav;
+//# sourceMappingURL=Nav.js.map

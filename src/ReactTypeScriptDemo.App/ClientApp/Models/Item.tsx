@@ -1,7 +1,7 @@
-﻿interface IItem {
+﻿interface Item {
     name: string,
     cost: number,
     quantity: number
 }
 
-export default IItem;
+export default Item;

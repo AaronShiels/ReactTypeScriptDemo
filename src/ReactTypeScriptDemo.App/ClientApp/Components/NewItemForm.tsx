@@ -1,19 +1,20 @@
 ﻿import * as React from "react";
-import IItem from "./IItem";
+import Item from "../Models/Item";
 
-interface INewItemFormProps {
-    onItemAdded: (item: IItem) => void;
+interface NewItemFormProps {
+    onItemAdded: (item: Item) => void;
 }
 
-interface INewItemFormState {
+interface NewItemFormState {
     name?: string,
     cost?: number,
     quantity?: number
 }
 
-class NewItemForm extends React.Component<INewItemFormProps, INewItemFormState>{
+class NewItemForm extends React.Component<NewItemFormProps, NewItemFormState>{
     constructor(props) {
         super(props);
+
         this.state = {};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
