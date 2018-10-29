@@ -1,26 +1,23 @@
-var path = require("path");
+const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-module.exports = {
-	entry: "./app/index.tsx",
+const config = {
+	entry: "./client/index.tsx",
 	output: {
 		filename: "bundle.js",
 		path: path.resolve(__dirname, "dist"),
 		publicPath: path.resolve(__dirname, "/dist/"),
 	},
 
-	// Enable sourcemaps for debugging webpack's output.
 	devtool: "source-map",
 
 	resolve: {
-		// Add '.ts' and '.tsx' as resolvable extensions.
 		extensions: [".ts", ".tsx", ".js", ".json"],
 	},
 
 	module: {
 		rules: [
-			// All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
 			{ test: /\.tsx?$/, loader: "ts-loader" },
-			// All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
 			{ enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
 			{ test: /\.css$/, use: ["style-loader", "css-loader"] },
 			{ test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader", options: { limit: 65000, mimetype: "application/font-woff" } },
@@ -31,14 +28,7 @@ module.exports = {
 		],
 	},
 
-	// When importing a module whose path matches one of the following, just
-	// assume a corresponding global variable exists and use that instead.
-	// This is important because it allows us to avoid bundling all of our
-	// dependencies, which allows browsers to cache those libraries between builds.
-	externals: {
-		react: "React",
-		"react-dom": "ReactDOM",
-	},
+	plugins: [new CopyWebpackPlugin([{ from: "client/index.html" }])],
 
 	devServer: {
 		contentBase: path.resolve(__dirname, "./"),
@@ -51,6 +41,7 @@ module.exports = {
 
 		stats: "errors-only",
 
+		index: "index.html",
 		proxy: {
 			"/api": {
 				target: "http://test.com",
@@ -62,3 +53,5 @@ module.exports = {
 		historyApiFallback: { rewrites: [{ from: /^(?!\/api).*$/, to: "/index.html" }] },
 	},
 };
+
+module.exports = config;

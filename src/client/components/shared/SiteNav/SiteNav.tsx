@@ -1,8 +1,11 @@
-import * as React from "react";
-
-import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
-
-import { CSSProperties } from "react";
+import * as React from 'react';
+import {
+	AppBar,
+	Button,
+	Toolbar,
+	Typography
+	} from '@material-ui/core';
+import { CSSProperties } from 'react';
 
 const styles: CSSProperties = {
 	flexGrow: 1,

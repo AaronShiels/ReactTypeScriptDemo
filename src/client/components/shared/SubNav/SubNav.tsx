@@ -1,9 +1,7 @@
-import * as React from "react";
-
-import { AppBar, Button, Toolbar } from "@material-ui/core";
-
-import { Link } from "react-router-dom";
-import theme from "../theme";
+import * as React from 'react';
+import theme from '../theme';
+import { AppBar, Button, Toolbar } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const subNavStyles: React.CSSProperties = {
 	backgroundColor: theme.palette.primary.dark,
