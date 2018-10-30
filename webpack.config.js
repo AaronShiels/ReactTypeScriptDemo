@@ -2,11 +2,11 @@ const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const config = {
-	entry: "./client/index.tsx",
+	entry: "./src/client/index.tsx",
 	output: {
 		filename: "bundle.js",
-		path: path.resolve(__dirname, "dist"),
-		publicPath: path.resolve(__dirname, "/dist/"),
+		path: path.resolve(__dirname, "dist/client/"),
+		publicPath: path.resolve(__dirname, "dist/client/"),
 	},
 
 	devtool: "source-map",
@@ -28,11 +28,11 @@ const config = {
 		],
 	},
 
-	plugins: [new CopyWebpackPlugin([{ from: "client/index.html" }])],
+	plugins: [new CopyWebpackPlugin([{ from: "src/client/index.html" }])],
 
 	devServer: {
-		contentBase: path.resolve(__dirname, "./"),
-		publicPath: path.resolve(__dirname, "/dist/"),
+		//contentBase: path.resolve(__dirname, "/dist/client/"),
+		publicPath: "/",
 
 		compress: true,
 		host: "0.0.0.0",
@@ -50,7 +50,7 @@ const config = {
 				pathRewrite: { "^/api": "" },
 			},
 		},
-		historyApiFallback: { rewrites: [{ from: /^(?!\/api).*$/, to: "/index.html" }] },
+		//historyApiFallback: { rewrites: [{ from: /^(?!\/api).*$/, to: "/index.html" }] },
 	},
 };
 

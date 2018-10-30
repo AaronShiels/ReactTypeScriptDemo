@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./",
-		"outDir": "./dist/",
+		//"baseUrl": "./",
+		//"outDir": "./dist/",
 		"sourceMap": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
@@ -15,6 +15,6 @@
 		"typeRoots": ["types"],
 		"lib": ["es7", "dom"]
 	},
-	"include": ["./client/**/*"],
+	"include": ["./src/**/*"],
 	"exclude": ["node_modules"]
 }
